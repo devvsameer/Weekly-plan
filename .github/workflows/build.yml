@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 21 }
       - run: rm -rf node_modules && npm install
-      - run: npx cap sync android
+      - run: node node_modules/@capacitor/cli/bin/capacitor sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
